@@ -19,7 +19,7 @@ class UserRegister(BaseModel):
     password: str  # For demo only, store as plain text
 
 class UserLogin(BaseModel):
-    username: str
+    email: str
     password: str
 
 @router.post("/register")
@@ -36,7 +36,7 @@ def register(user: UserRegister, db: Session = Depends(get_db)):
 
 @router.post("/login")
 def login(user: UserLogin, db: Session = Depends(get_db)):
-    existing = db.query(User).filter(User.username == user.username).first()
+    existing = db.query(User).filter(User.email == user.email).first()
     if not existing:
         raise HTTPException(status_code=401, detail="Invalid username or password")
     # For demo: accept any password
