@@ -16,4 +16,6 @@ scikit-learn==1.3.2
 ta==0.11.0
 newsapi-python==0.2.7
 psycopg2-binary==2.9.9
-alembic==1.12.1 
+alembic==1.12.1
+finnhub-python==2.4.18
+emoji==0.6.0 
